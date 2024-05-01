@@ -82,6 +82,17 @@
 <div class="viewcode-block" id="index">
 <a class="viewcode-back" href="../../polls.html#polls.views.index">[docs]</a>
 <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function returns a list of the latest 5 questions.</span>
+<span class="sd">    The questions are ordered by publication date.</span>
+
+<span class="sd">    :param request: The request object.</span>
+<span class="sd">    :type request: HttpRequest</span>
+
+<span class="sd">    :return: A list of the latest 5 questions.</span>
+<span class="sd">    :rtype: HttpResponse</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">latest_question_list</span> <span class="o">=</span> <span class="n">Question</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-pub_date&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
     <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;latest_question_list&#39;</span><span class="p">:</span> <span class="n">latest_question_list</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;polls/poll.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
@@ -91,6 +102,18 @@
 <div class="viewcode-block" id="detail">
 <a class="viewcode-back" href="../../polls.html#polls.views.detail">[docs]</a>
 <span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function returns a question template.</span>
+<span class="sd">    </span>
+<span class="sd">    :param request: The request object.</span>
+<span class="sd">    :type request: HttpRequest</span>
+<span class="sd">    </span>
+<span class="sd">    :param question_id: The id of the question.</span>
+<span class="sd">    :type question_id: int</span>
+
+<span class="sd">    :return: A question template.</span>
+<span class="sd">    :rtype: HttpResponse</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">question</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">question_id</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;polls/detail.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span></div>
 
@@ -99,6 +122,19 @@
 <div class="viewcode-block" id="results">
 <a class="viewcode-back" href="../../polls.html#polls.views.results">[docs]</a>
 <span class="k">def</span> <span class="nf">results</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function returns the results of a poll.</span>
+
+<span class="sd">    :param request: The request object.</span>
+<span class="sd">    :type request: HttpRequest</span>
+
+<span class="sd">    :param question_id: The id of the question.</span>
+<span class="sd">    :type question_id: int</span>
+
+<span class="sd">    :return: The results of a poll.</span>
+<span class="sd">    :rtype: HttpResponse</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">question</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">question_id</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;polls/results.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span></div>
 
@@ -107,6 +143,20 @@
 <div class="viewcode-block" id="vote">
 <a class="viewcode-back" href="../../polls.html#polls.views.vote">[docs]</a>
 <span class="k">def</span> <span class="nf">vote</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function allows users to vote on a poll.</span>
+<span class="sd">    </span>
+<span class="sd">    :param request: The request object.</span>
+<span class="sd">    :type request: HttpRequest</span>
+<span class="sd">    </span>
+<span class="sd">    :param question_id: The id of the question.</span>
+<span class="sd">    :type question_id: int</span>
+
+<span class="sd">    :exception: Choice.DoesNotExist: If the choice does not exist.</span>
+<span class="sd">    </span>
+<span class="sd">    :return: The results of a poll.</span>
+<span class="sd">    :rtype: HttpResponseRedirect</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">question</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">question_id</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">selected_choice</span> <span class="o">=</span> <span class="n">question</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
