@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>personal.views &mdash; campaignSite 00.01.01 documentation</title>
+  <title>blog.models &mdash; campaignSite 00.01.01 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -61,7 +61,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">personal.views</li>
+      <li class="breadcrumb-item active">blog.models</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -70,17 +70,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for personal.views</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+  <h1>Source code for blog.models</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Define Models for the blog app.</span>
+<span class="sd">Each model represents a table in the database.</span>
+<span class="sd">Each model class is a subclass of django.db.models.Model.</span>
+<span class="sd">Each attribute of the model represents a column in the table.</span>
+<span class="sd">&#39;&#39;&#39;</span>
 
-<span class="c1"># Create your views here.</span>
+<div class="viewcode-block" id="Post">
+<a class="viewcode-back" href="../../blog.html#blog.models.Post">[docs]</a>
+<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This model defines a blog post.</span>
+<span class="sd">    :param title: The title of the post.</span>
+<span class="sd">    :type title: str</span>
 
-<div class="viewcode-block" id="index">
-<a class="viewcode-back" href="../../personal.html#personal.views.index">[docs]</a>
-<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">)</span></div>
+<span class="sd">    :param body: The content of the post.</span>
+<span class="sd">    :type body: str</span>
 
+<span class="sd">    :param signature: The author of the post.</span>
+<span class="sd">    :type signature: str</span>
+
+<span class="sd">    :param date: The date the post was created.</span>
+<span class="sd">    :type date: datetime</span>
+
+<span class="sd">    :return: The title of the post.</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
+    <span class="n">signature</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;Steve&quot;</span><span class="p">)</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span></div>
 
 </pre></div>
 

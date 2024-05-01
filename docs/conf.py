@@ -6,6 +6,13 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import os
+import sys
+import django
+sys.path.insert(0, os.path.abspath('..'))
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mySite.settings'
+django.setup()
+
 project = 'campaignSite'
 copyright = '2024, Steven Meare'
 author = 'Steven Meare'
