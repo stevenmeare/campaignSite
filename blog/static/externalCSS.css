@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Style header used in page Header */
+h1 {
+    font-size: 28px;
+    color: #fbfbfb;
+}
+
+/* Style headers in containers */
+h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+
+/* Style containers for each set of headers/paragraphs */
+
+.container{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+
+
+}
+
+/* Style right-float class, currently used for positioning the jpg */
+
+.right-float{
+    float:right;
+    margin-left: 0;
+    max-width: 400px;
+    min-width: 200px;
+    height: auto;
+    
+}
+
+/* Style all paragraphs */
+
+p {
+    font-size: 16px;
+    color: #333;
+    width: 60%;
+}
+
+/* Style the input box for the message */
+
+textarea {
+    height: 8em;
+    width: 450px;
+    padding: 10px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the buttons on search and message forms */
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+

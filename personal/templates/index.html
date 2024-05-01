@@ -1,0 +1,57 @@
+
+{% extends "header.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="container">
+        <h2>About Me</h2>
+
+        <img src="{% static 'assets/beeblebrox.png' %}" alt="Me" class="right-float">
+
+        <p>
+            "Electrify your future with Zaphod Beeblebrox as President! 
+            With his two heads and three arms, Beeblebrox brings twice 
+            the vision and thrice the action to the highest office. 
+            As a renowned space adventurer and former Galactic President, 
+            Zaphod knows no boundaries and is ready to boldly lead us 
+            into a future where the impossible is just another Tuesday. 
+            From navigating the complexities of intergalactic diplomacy 
+            to dazzling crowds with his unparalleled charisma, Beeblebrox 
+            is the embodiment of innovation, courage, and a zest for life. 
+            Join the cosmic revolution and vote Zaphod Beeblebrox for President!"
+        </p>
+
+        <h2>Contact</h2>
+        <p><a href="mailto:campaign@beeblebrox.com">E-mail me here!</a></p>
+
+    </div>
+
+    <div class="container">        
+        <h2>Skills</h2>
+        <p>
+            Charisma,<br>
+            Resourcefulness,<br>
+            Boldness,<br>
+            Charisma<br>
+        </p>
+    </div>
+
+    <div class="container">
+        
+        <form action="" method="get">
+            <input type="text" name="search">
+            <button type="submit">Search</button>
+        </form>
+
+        <h2>Contact Me</h2>
+        <form action="" method="post">
+            <input type="text" name="name" placeholder="Name"><br>
+            <input type="text" name="email" placeholder="Email"><br>
+            <textarea id="message" name="message" ></textarea><br>
+            <button type="submit">Send</button>
+        </form>
+
+    </div>
+    
+{% endblock %}
+
