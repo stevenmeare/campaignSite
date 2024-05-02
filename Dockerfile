@@ -17,4 +17,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 80
 
 # Run the server and specify the port.
+<<<<<<< HEAD
 CMD ["python", "manage.py", "runserver", "localhost:8000"]
+=======
+CMD ["python", "manage.py", "runserver", "localhost:80"]
+>>>>>>> campaignSite/master
