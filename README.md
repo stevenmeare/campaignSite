@@ -8,13 +8,25 @@ This is a fictional campaign website, demonstrating the use of Django apps and b
 
 ## Deployment
 
-To deploy this project run
+To deploy this project in an environment, first install a virtual environment
+in the project root folder using the command prompt:
+
+'''cmd
+  python -m venv env
+'''
+
+The environment can then be started from the command prompt in the venv with
+'''cmd
+  Scripts/Activate
+'''
+
+To start the server in the venv, enter the following in the command prompt
+
 
 ```cmd
   python manage.py runserver 
 ```
 
-within the environment. 
 
 From the docker
 
